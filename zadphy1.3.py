@@ -1,15 +1,29 @@
 
-##8,9 do domu
+import matplotlib.pyplot as plt
+import numpy as np
 
-#zad1.3 2,3,4
+x = np.arange(-5, 5, 0.01)
 
-x = np.arrange(-5,5,0.01)
-y = np.than(x)
-pit.plot(x,y)
+#f1
+y = np.tanh(x)
+plt.plot(x, y)
 
-#zad1.3 całe
-pit.plot(x[x>0], x[x>0])
-pit.plot(x[x<=0], np.exp(x[x<=0])-1)
+#f2
+y = ((np.exp(x)-np.exp(-x))/(np.exp(x)+np.exp(-x)))
+plt.plot(x, y)
 
-#zad 1.4
+
+#f3
+y =(1/(1+np.exp(-x)))
+plt.plot(x, y)
+
+#f4
+x = np.arange(-5, 5, 0.01)
+y = np.where(x <= 0, 0, x)
+plt.plot(x, y)
+
+#f5
+plt.plot(x[x>0], x[x>0])
+plt.plot(x[x<=0], np.exp(x[x<=0])-1)
+
 
