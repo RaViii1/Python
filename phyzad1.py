@@ -34,3 +34,9 @@ max_value = vals.max()
 col_max = vals.max(axis=0)
 cols = np.array(cols)
 cols(col_max == max_value) 
+
+#zad8
+mask = vals == 0 #tworzenie maski dla wartosci = 0
+ArrayForZeros = np.sum(mask, axis=0) # Sumowanie wystąpień 0 w poszczegolnych kolumnach tworzy nowa tablice
+ZeroMax = max(ArrayForZeros) #Najwyzsza suma 0 w tablicy z sumą zer
+name = pd.DataFrame(cols[ZeroMax == ArrayForZeros]) # porownojac nową tablicę  oraz max 0 do col otrzymujemy nazwe kolumny
