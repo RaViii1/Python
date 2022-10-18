@@ -40,3 +40,16 @@ mask = vals == 0 #tworzenie maski dla wartosci = 0
 ArrayForZeros = np.sum(mask, axis=0) # Sumowanie wystąpień 0 w poszczegolnych kolumnach tworzy nowa tablice
 ZeroMax = max(ArrayForZeros) #Najwyzsza suma 0 w tablicy z sumą zer
 name = pd.DataFrame(cols[ZeroMax == ArrayForZeros]) # porownojac nową tablicę  oraz max 0 do col otrzymujemy nazwe kolumny
+
+#zad9
+parzyste = vals[::2,:] #sumowanie zaczynajac od 0 skok co 2
+nieparzyste = vals[1::2,:]#sumowanie zaczynajac od 1 skok co 2
+
+parzyste_sum = np.sum(parzyste, axis=0) #Suma parzystych wartosci w kolumnach
+nieparzyste_sum = np.sum(nieparzyste, axis=0)#Suma nieparzystych wartosci w kolumnach
+
+mask = parzyste_sum > nieparzyste_sum #maska pokazujaca kolumny w ktorych parz>nieparz
+
+tabNazw = np.array(cols)[mask] #nowa tablica
+print(tabNazw)
+
