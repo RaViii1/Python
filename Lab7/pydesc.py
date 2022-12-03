@@ -1,9 +1,3 @@
-# -*- coding: utf-8 -*-
-"""
-Created on Sat Nov 26 20:22:47 2022
-
-@author: Alicja
-"""
 
 from keras.layers import Conv2D, Flatten, Dense
 from keras.models import Sequential
