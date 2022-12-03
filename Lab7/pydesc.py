@@ -1,4 +1,3 @@
-
 from keras.layers import Conv2D, Flatten, Dense
 from keras.models import Sequential
 from keras.optimizers import Adam
@@ -32,12 +31,14 @@ model.add(Conv2D(input_shape = X_train.shape[1:],
                  kernel_size = kernel_size,
                  padding = conv_rule, 
                  activation = act_func))
-model.add(Flatten())
-model.add(Dense(class_cnt, activation='softmax'))
+model.add(Flatten()) #Spłaszcza dane wejściowe. Nie wpływa na wielkość partii.
+model.add(Dense(class_cnt, activation='softmax')) # class_cnt wielkośc przestrzeni wyjsciowej 
+
+#loss
 model.compile(optimizer=Adam(learning_rate),
               loss='SparseCategoricalCrossentropy',
               metrics='accuracy')
-
+#model.compile(), train the model with model.fit(), or use  model model.predict().
 model.summary() #podsumowanie modelu
 model.fit(x = X_train, y = y_train,epochs = class_cnt ,validation_data=(X_test, y_test))
 
